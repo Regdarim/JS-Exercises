@@ -1,6 +1,6 @@
 //http://codepen.io/Regdarim/pen/MbaQJM
 
-
+//database
 var JOURNAL = [
   {"events":["carrot","exercise","weekend"],"squirrel":false},
   {"events":["bread","pudding","brushed teeth","weekend","touched tree"],"squirrel":false},
@@ -96,23 +96,26 @@ var JOURNAL = [
 
 
 
-
+//checking if event occurs
 function hasEvent(event, entry) {
   return entry.events.indexOf(event) != -1;
 }
 
+//[00,01,10,11]
+//where in 00 means that there was no squirrel and no such event in given entry etc...
+
 function table(event, journal){
   var table = [0,0,0,0];
   for(var i=0; i<journal.length; i++){
-    var entry = journal[i], index = 0;
+    var entry = journal[i], index = 0;//creating an object defining on which line and which index we are currently [00]
     if(hasEvent(event,entry)){
-      index +=1;
+      index +=1;//if has event jump to the second index of table[01]
     }
     if(journal[i].squirrel == true){
-      index+=2
+      index+=2 // if there was a squirrel in that entry jump to third[10] index of table or if previous statment was true, to the fourth what meant 11
     }
 
-    table[index] +=1;
+    table[index] +=1; // now you can add appearance to the right category 
   }
 
   return table;
@@ -120,11 +123,11 @@ function table(event, journal){
 
 
 
-console.log(table('pizza', JOURNAL));
+console.log(table('peanuts', JOURNAL)); // chcecking how table looks
 
 
 
-
+//just math formula for correlation written in JS
 function correlation(tab){
   var phi = (tab[3]*tab[0]-tab[2]*tab[1])/
               Math.sqrt(
@@ -141,7 +144,7 @@ function correlation(tab){
 
 
 
-
+//invocation
 console.log(correlation(table('peanuts',JOURNAL)));
 
 
