@@ -147,6 +147,53 @@ function correlation(tab){
 //invocation
 console.log(correlation(table('peanuts',JOURNAL)));
 
+// we want to see correlation for each event
+// so we use mapping
+
+
+function allCorrelations(journal){
+var phis = {};// defining empty object to store events: correlation 
+  for(var i = 0; i<journal.length; i++){
+    var events = journal[i].events; //this take care of vertical entries
+    for(var j=0; j< events.length; j++){
+      var event = events[j];// and this one of horizontal specific events 
+      if (!(event in phis))
+        phis[event] = correlation(table(event,journal));// if there is no such event in phis,  map it (object[name] = value)
+      
+    }
+  }
+  return phis;
+}
+
+var correlationAll = allCorrelations(JOURNAL); //assigning function to variable
+
+console.log(correlationAll)
+
+for(var event in correlationAll){
+  if (correlationAll[event]>0.3 || correlationAll[event]<-0.3){// sorting correlation
+  console.log(event + ': ' + correlationAll[event]);
+}
+}
+//here, just checking if having eaten peanuts and not having brushed teeth was the case for turning into squirrel:)
+var journal = JOURNAL;
+for(var i = 0; i<journal.length; i++){
+  var entry = journal[i];  
+    if (hasEvent('peanuts',entry) && !hasEvent('brushed teeth',entry)){
+      entry.events.push('peanutsAndNotBrushed');
+    }
+}
+
+console.log(correlation(table('peanutsAndNotBrushed',JOURNAL)));
+//correlation = 1 hell yeaah!
+
+
+
+
+
+
+
+
+
 
 
 
