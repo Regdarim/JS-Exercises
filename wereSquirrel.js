@@ -1,3 +1,6 @@
+//http://codepen.io/Regdarim/pen/MbaQJM
+
+
 var JOURNAL = [
   {"events":["carrot","exercise","weekend"],"squirrel":false},
   {"events":["bread","pudding","brushed teeth","weekend","touched tree"],"squirrel":false},
