@@ -6,6 +6,6 @@ just sharpening my JS sword...
 
 with:
 
-www.eloguentjavascript.net
+www.eloquentjavascript.net
 
 www.codewars.com
