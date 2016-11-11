@@ -1,7 +1,7 @@
 //http://codepen.io/Regdarim/pen/zovgqL
 
-//function make tabe from range of a and b(optionally can jump by 'c' in this range)
-// and sum up this array
+//function make table from range of a and to b(optionally can jump by 'c' in this range)
+// and sum this array up
 function sor(a,b,c){// function can take 3 or 2 arguments
 
  var tab2 = [];

@@ -1,5 +1,10 @@
 //http://codepen.io/Regdarim/pen/MbaQJM
 
+//the task is to find out if particular events have impact on turning into squirrel
+// we explore the correlation 
+
+
+
 //database
 var JOURNAL = [
   {"events":["carrot","exercise","weekend"],"squirrel":false},
@@ -103,6 +108,9 @@ function hasEvent(event, entry) {
 
 //[00,01,10,11]
 //where in 00 means that there was no squirrel and no such event in given entry etc...
+//01 no squirrel , there was 'event'
+//10 there was squirrel, bou no given event
+///11 both occured
 
 function table(event, journal){
   var table = [0,0,0,0];
